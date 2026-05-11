@@ -2,8 +2,6 @@
 
 Student ID: 114AB8052
 
-Name: Chen Yen-Chun
-
 > SDG alignment: **SDG 3 — Good Health and Well-being**
 >
 > Based on the final analysis results in `notebooks/01_final_screening_analysis.ipynb` and `notebooks/01_final_screening_analysis_zh.ipynb`.
