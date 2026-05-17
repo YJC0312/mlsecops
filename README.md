@@ -12,8 +12,6 @@ Student ID: 114AB8052
 
 This project builds a binary diabetes screening model using the CDC BRFSS 2015 Diabetes Health Indicators dataset. The proposal does not treat the highest recall or highest accuracy as the sole objective. Instead, it starts from the real screening use case: the model should detect many potential positive cases while keeping false positives manageable enough for public-health or primary-care workflows.
 
-Feature diagnostics then determine which preprocessing choices are reasonable. Model comparison uses a fixed train / validation / test design. Threshold selection does not assume the default `0.5`; instead, it chooses the highest-precision threshold among validation candidates satisfying `Recall >= 0.75`.
-
 The final selected model is **XGBoost with `scale_pos_weight`**. On the validation set, the selected threshold `0.542078` achieved Recall `0.7501`, Precision `0.3244`, Specificity `0.7471`, and ROC-AUC `0.8283`. After freezing both the model and threshold, the held-out test set achieved Recall `0.7512`, Precision `0.3244`, Specificity `0.7467`, F1 `0.4531`, F2 `0.5947`, ROC-AUC `0.8267`, and PR-AUC `0.4229`. The confusion matrix was TP `5,310`, FP `11,061`, TN `32,606`, and FN `1,759`.
 
 These results mean that the model can identify about 75% of positive cases while correctly filtering about 75% of negative cases. However, precision remains around 32%, which means many predicted high-risk cases are false positives. Therefore, the model is best positioned as a **first-stage risk screening and referral-support tool**, not as a diagnostic replacement.
